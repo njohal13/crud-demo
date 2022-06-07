@@ -1,11 +1,16 @@
 console.log('May Node be with you')
 const express = require('express');
 const app = express();
+const dotenv = require('dotenv').config()
 
+const colors = require('colors')
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient
-const connectionString = 'mongodb+srv://nj:Haze123.@cluster0.agyk0.mongodb.net/?retryWrites=true&w=majority'
+const connectionString = 'mongodb+srv://username:<password>.@cluster0.agyk0.mongodb.net/?retryWrites=true&w=majority'
 
+const connectDB = require('./db.js')
+
+connectDB()  
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
